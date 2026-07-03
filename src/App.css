@@ -1,0 +1,571 @@
+/* Viewport and Layout */
+.app-viewport {
+position: relative;
+width: 100vw;
+min-height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
+overflow: hidden;
+padding: 20px;
+box-sizing: border-box;
+}
+
+.content-container {
+width: 100%;
+max-width: 760px;
+display: flex;
+justify-content: center;
+align-items: center;
+z-index: 10;
+}
+
+.card-container {
+width: 100%;
+}
+
+/* Glassmorphism Cards */
+.apology-card,
+.choice-card,
+.success-card {
+background: rgba(255, 255, 255, 0.75);
+backdrop-filter: blur(16px) saturate(120%);
+-webkit-backdrop-filter: blur(16px) saturate(120%);
+border: 1px solid rgba(255, 255, 255, 0.6);
+border-radius: 28px;
+padding: 48px 36px;
+box-shadow:
+0 10px 30px -5px rgba(244, 63, 94, 0.05),
+0 20px 50px -10px rgba(139, 92, 246, 0.08),
+0 1px 0px 0px rgba(255, 255, 255, 0.8) inset;
+text-align: center;
+transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+box-sizing: border-box;
+}
+
+.apology-card:hover {
+transform: translateY(-4px);
+box-shadow:
+0 15px 35px -5px rgba(244, 63, 94, 0.08),
+0 25px 60px -10px rgba(139, 92, 246, 0.12);
+}
+
+/* Bigger forgiveness choice card */
+.choice-card-large {
+width: 100%;
+max-width: 760px;
+min-height: 330px;
+padding: 54px 40px;
+}
+
+/* Card Header elements */
+.card-header {
+margin-bottom: 28px;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.emoji-badge {
+font-size: 2.8rem;
+line-height: 1;
+margin-bottom: 12px;
+filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.05));
+animation: floatEmoji 3s ease-in-out infinite;
+}
+
+.main-heading {
+font-family: 'Playfair Display', Georgia, serif;
+font-size: 2.2rem;
+font-weight: 500;
+color: #1e1b4b;
+margin-bottom: 12px;
+letter-spacing: -0.02em;
+}
+
+.sub-heading {
+font-family: 'Playfair Display', Georgia, serif;
+font-size: 2rem;
+font-weight: 500;
+color: #1e1b4b;
+margin-bottom: 6px;
+}
+
+.sub-tagline {
+font-size: 1rem;
+color: #6b7280;
+font-weight: 500;
+}
+
+.accent-line {
+width: 45px;
+height: 3px;
+background: linear-gradient(90deg, #f43f5e, #c084fc);
+border-radius: 2px;
+margin-top: 4px;
+}
+
+/* Card Body & Typography */
+.card-body {
+margin-bottom: 36px;
+}
+
+.apology-paragraph {
+font-size: 1.05rem;
+line-height: 1.7;
+color: #4b5563;
+margin-bottom: 18px;
+text-align: justify;
+text-align-last: center;
+font-weight: 400;
+}
+
+.apology-paragraph:last-child {
+margin-bottom: 0;
+font-family: 'Caveat', cursive;
+font-size: 1.6rem;
+line-height: 1.4;
+color: #b45309;
+margin-top: 24px;
+padding: 12px 0;
+border-top: 1px dashed rgba(0, 0, 0, 0.06);
+border-bottom: 1px dashed rgba(0, 0, 0, 0.06);
+}
+
+/* Footer & Buttons */
+.card-footer {
+display: flex;
+justify-content: center;
+}
+
+.card-footer-column {
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 10px;
+}
+
+.forgive-cta-row {
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 14px;
+flex-wrap: wrap;
+}
+
+.primary-btn {
+background: linear-gradient(135deg, #f43f5e 0%, #ec4899 50%, #d946ef 100%);
+color: white;
+border: none;
+padding: 16px 36px;
+font-size: 1.05rem;
+font-weight: 600;
+border-radius: 50px;
+cursor: pointer;
+display: flex;
+align-items: center;
+gap: 10px;
+box-shadow: 0 10px 25px -5px rgba(244, 63, 94, 0.4);
+transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.primary-btn:hover {
+transform: translateY(-2px) scale(1.02);
+box-shadow: 0 15px 30px -5px rgba(244, 63, 94, 0.6);
+}
+
+.primary-btn:active {
+transform: translateY(1px);
+}
+
+.highlight-btn {
+transform: scale(1.04);
+box-shadow:
+0 0 0 8px rgba(244, 63, 94, 0.08),
+0 16px 36px -6px rgba(244, 63, 94, 0.45);
+}
+
+.forgive-hint {
+display: flex;
+align-items: center;
+gap: 8px;
+font-size: 1rem;
+font-weight: 700;
+color: #d97706;
+text-shadow: 0 0 12px rgba(253, 224, 71, 0.55);
+animation: bounceGlow 1.25s ease-in-out infinite;
+}
+
+.side-hint {
+display: flex;
+align-items: center;
+gap: 8px;
+}
+
+.hint-icon {
+width: 18px;
+height: 18px;
+animation: pointMove 1s ease-in-out infinite;
+}
+
+.point-down {
+transform: rotate(90deg);
+}
+
+.btn-icon {
+width: 18px;
+height: 18px;
+transition: transform 0.3s ease;
+}
+
+.btn-icon.fill {
+fill: currentColor;
+}
+
+.primary-btn:hover .btn-icon {
+transform: scale(1.2);
+}
+
+/* Choice Selection Screen */
+.choice-buttons {
+display: flex;
+flex-direction: column;
+gap: 14px;
+margin-top: 32px;
+align-items: center;
+width: 100%;
+}
+
+/* New horizontal layout for Yes/No section */
+.choice-buttons-row {
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 18px;
+flex-wrap: wrap;
+position: relative;
+min-height: 140px;
+margin-top: 32px;
+width: 100%;
+}
+
+.forgive-btn {
+background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+color: white;
+border: none;
+width: 100%;
+max-width: 280px;
+padding: 14px 28px;
+font-size: 1.05rem;
+font-weight: 600;
+border-radius: 50px;
+cursor: pointer;
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 8px;
+box-shadow: 0 6px 18px -4px rgba(16, 185, 129, 0.4);
+transition: all 0.25s ease;
+}
+
+.forgive-btn:hover {
+transform: translateY(-2px);
+box-shadow: 0 10px 22px -4px rgba(16, 185, 129, 0.5);
+}
+
+.yes-btn {
+min-width: 160px;
+}
+
+.no-btn {
+background: #f3f4f6;
+color: #9ca3af;
+border: none;
+min-width: 130px;
+padding: 14px 28px;
+font-size: 1.05rem;
+font-weight: 500;
+border-radius: 50px;
+cursor: pointer;
+transition: all 0.18s ease;
+}
+
+.no-btn:hover {
+background: #fee2e2;
+color: #ef4444;
+}
+
+.no-btn-red {
+background: #ef4444;
+color: white;
+box-shadow: 0 8px 20px -6px rgba(239, 68, 68, 0.45);
+}
+
+.no-btn-red:hover {
+background: #dc2626;
+color: white;
+}
+
+/* Success Card */
+.success-card {
+background: rgba(255, 255, 255, 0.85);
+backdrop-filter: blur(20px);
+-webkit-backdrop-filter: blur(20px);
+border: 1px solid rgba(255, 255, 255, 0.7);
+border-radius: 28px;
+padding: 56px 40px;
+box-shadow: 0 20px 50px rgba(244, 63, 94, 0.1);
+text-align: center;
+}
+
+.success-icon-wrapper {
+position: relative;
+display: inline-block;
+margin-bottom: 28px;
+}
+
+.heart-halo {
+background: radial-gradient(circle, rgba(254, 226, 226, 0.8) 0%, rgba(254, 226, 226, 0) 70%);
+padding: 20px;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.success-icon {
+width: 60px;
+height: 60px;
+color: #f43f5e;
+}
+
+.success-icon.fill {
+fill: #f43f5e;
+}
+
+.sparkle-decorator {
+position: absolute;
+color: #fbbf24;
+width: 20px;
+height: 20px;
+}
+
+.sd-1 {
+top: -5px;
+right: -5px;
+animation: spinSparkle 4s linear infinite;
+}
+
+.sd-2 {
+bottom: 0;
+left: -10px;
+animation: spinSparkle 6s linear infinite reverse;
+}
+
+.success-heading {
+font-family: 'Playfair Display', Georgia, serif;
+font-size: 2.4rem;
+font-weight: 600;
+color: #1e1b4b;
+margin-bottom: 16px;
+}
+
+.success-message {
+font-size: 1.1rem;
+line-height: 1.6;
+color: #4b5563;
+margin-bottom: 32px;
+}
+
+.success-footer {
+margin-top: 10px;
+}
+
+.small-accent {
+font-size: 0.9rem;
+font-weight: 600;
+letter-spacing: 0.05em;
+text-transform: uppercase;
+color: #c084fc;
+}
+
+/* Background floating particles animation rules */
+.background-decorations {
+position: absolute;
+inset: 0;
+overflow: hidden;
+z-index: 0;
+pointer-events: none;
+}
+
+.float-particle {
+pointer-events: none;
+animation: floatUp 15s linear infinite;
+will-change: transform, opacity;
+}
+
+/* Animations & Keyframes */
+.fade-in {
+animation: fadeInSlideUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.pulse {
+animation: gentlePulse 2s ease-in-out infinite;
+}
+
+@keyframes fadeInSlideUp {
+0% {
+opacity: 0;
+transform: translateY(30px);
+}
+100% {
+opacity: 1;
+transform: translateY(0);
+}
+}
+
+@keyframes gentlePulse {
+0% {
+transform: scale(1);
+}
+50% {
+transform: scale(1.03);
+box-shadow: 0 15px 30px -5px rgba(244, 63, 94, 0.55);
+}
+100% {
+transform: scale(1);
+}
+}
+
+@keyframes floatEmoji {
+0% {
+transform: translateY(0) rotate(0deg);
+}
+50% {
+transform: translateY(-8px) rotate(3deg);
+}
+100% {
+transform: translateY(0) rotate(0deg);
+}
+}
+
+@keyframes spinSparkle {
+0% {
+transform: rotate(0deg) scale(0.8);
+opacity: 0.5;
+}
+50% {
+transform: rotate(180deg) scale(1.2);
+opacity: 1;
+}
+100% {
+transform: rotate(360deg) scale(0.8);
+opacity: 0.5;
+}
+}
+
+@keyframes floatUp {
+0% {
+transform: translateY(110vh) rotate(0deg) scale(0.5);
+opacity: 0;
+}
+10% {
+opacity: 1;
+}
+90% {
+opacity: 0.8;
+}
+100% {
+transform: translateY(-10vh) rotate(360deg) scale(1);
+opacity: 0;
+}
+}
+
+@keyframes bounceGlow {
+0%,
+100% {
+transform: translateY(0);
+opacity: 1;
+}
+50% {
+transform: translateY(-4px);
+opacity: 0.88;
+}
+}
+
+@keyframes pointMove {
+0%,
+100% {
+transform: translateX(0);
+}
+50% {
+transform: translateX(5px);
+}
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+.content-container {
+max-width: 100%;
+}
+
+.choice-card-large {
+max-width: 100%;
+min-height: auto;
+padding: 42px 24px;
+}
+
+.choice-buttons-row {
+min-height: 180px;
+}
+}
+
+@media (max-width: 480px) {
+.apology-card,
+.choice-card,
+.success-card {
+padding: 36px 24px;
+border-radius: 20px;
+}
+
+.choice-card-large {
+padding: 36px 20px;
+}
+
+.main-heading {
+font-size: 1.8rem;
+}
+
+.sub-heading {
+font-size: 1.7rem;
+}
+
+.success-heading {
+font-size: 2rem;
+}
+
+.apology-paragraph {
+font-size: 0.95rem;
+line-height: 1.6;
+}
+
+.apology-paragraph:last-child {
+font-size: 1.35rem;
+}
+
+.primary-btn,
+.forgive-btn,
+.no-btn {
+padding: 12px 24px;
+font-size: 0.95rem;
+}
+
+.choice-buttons-row {
+gap: 14px;
+}
+
+.yes-btn,
+.no-btn {
+min-width: 120px;
+}
+}
